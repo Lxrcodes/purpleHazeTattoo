@@ -12,7 +12,7 @@
                 <button (click)="openModal(item)" class="w-full h-auto block" aria-label="View larger image">
                   <img [ngSrc]="item.src" [alt]="item.alt" [width]="item.width" [height]="item.height"
                       class="w-full h-auto rounded-lg shadow-lg shadow-black/30 transition-transform duration-300 hover:scale-105"
-                      priority="i < 4" />
+                      [priority]="i < 4" />
                 </button>
             </div>
         }
