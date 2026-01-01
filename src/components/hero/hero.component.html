@@ -1,0 +1,19 @@
+<section id="home" class="h-screen flex items-center justify-center relative bg-cover bg-center bg-fixed" style="background-image: url('src/img/hero-background.jpg');">
+  <div class="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] via-[#1a1a2e]/50 to-transparent"></div>
+  <div class="absolute inset-0 bg-[#1a1a2e]/70"></div>
+  
+  <div class="relative z-10 text-center text-white px-4">
+    <h1 class="text-6xl md:text-8xl lg:text-9xl font-cinzel font-bold leading-tight drop-shadow-lg mb-4">
+      Purple Haze Tattoos
+    </h1>
+    <p class="text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto font-garamond tracking-widest">
+      Illustrative & Fine Line Specialist
+    </p>
+  </div>
+
+  <a href="#about" (click)="scrollTo($event, '#about')" aria-label="Scroll down" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-white animate-bounce">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </a>
+</section>

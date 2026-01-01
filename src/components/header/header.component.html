@@ -1,0 +1,43 @@
+<header 
+  [class.bg-[#1a1a2e]/90]="isScrolled()" 
+  [class.backdrop-blur-lg]="isScrolled()" 
+  [class.shadow-lg]="isScrolled()"
+  [class.shadow-purple-500/10]="isScrolled()"
+  [class.border-b]="isScrolled()"
+  [class.border-slate-800]="isScrolled()"
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#home" (click)="scrollTo($event, '#home')" class="text-2xl lg:text-3xl font-bold font-cinzel text-white transition-colors hover:text-[#9d4edd]">
+      Purple Haze Tattoos
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-8">
+      @for (link of navLinks; track link.href) {
+        <a [href]="link.href" (click)="scrollTo($event, link.href)" class="text-slate-300 hover:text-[#9d4edd] transition-colors duration-300 tracking-wider">
+          {{ link.label }}
+        </a>
+      }
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button (click)="toggleMenu()" class="text-white focus:outline-none">
+        <i [class]="isMenuOpen() ? 'fas fa-times' : 'fas fa-bars'" class="text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  @if (isMenuOpen()) {
+    <div class="md:hidden bg-[#1a1a2e] absolute top-full left-0 w-full">
+      <div class="flex flex-col items-center py-4">
+        @for (link of navLinks; track link.href) {
+          <a [href]="link.href" (click)="scrollTo($event, link.href)" class="block text-slate-300 hover:text-[#9d4edd] py-3 text-lg transition-colors duration-300">
+            {{ link.label }}
+          </a>
+        }
+      </div>
+    </div>
+  }
+</header>

@@ -1,0 +1,24 @@
+<section id="flash" class="py-20 md:py-32">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12 scroll-reveal">
+      <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-white">Flash Designs</h2>
+      <p class="text-lg text-slate-400 mt-2 font-garamond tracking-wider">Pre-drawn designs, ready to be tattooed.</p>
+      <div class="w-24 h-1 bg-[#9d4edd] mx-auto mt-4 rounded"></div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 scroll-reveal">
+      @for(design of flashDesigns; track design.alt) {
+        <div class="bg-[#121212] rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-purple-500/20 transform hover:-translate-y-2 group">
+          <div class="relative">
+            <img [ngSrc]="design.src" [alt]="design.alt" width="500" height="500" 
+                 class="w-full h-64 object-cover" />
+            <div class="absolute inset-0 bg-black/20"></div>
+          </div>
+          <div class="p-6 text-center">
+            <h3 class="font-garamond text-2xl text-white">{{ design.alt }}</h3>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

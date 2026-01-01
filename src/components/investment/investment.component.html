@@ -1,0 +1,50 @@
+<section id="investment" class="py-20 md:py-32 bg-[#121212]">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="md:col-span-1 scroll-reveal">
+        <h2 class="text-4xl md:text-5xl font-garamond font-semibold text-white mb-4">The Process & Investment</h2>
+        <p class="text-slate-400 leading-relaxed">
+          Investing in a tattoo is investing in a piece of art you'll carry forever. Here is a transparent breakdown of my pricing structure to help you plan your next piece.
+        </p>
+      </div>
+      <div class="md:col-span-2 space-y-4 scroll-reveal">
+        <!-- Accordion Item 1: Minimum Charge -->
+        <div class="border-b border-slate-700">
+          <button (click)="toggleAccordion('minimum')" class="w-full flex justify-between items-center py-5 text-left">
+            <h3 class="text-xl font-montserrat font-semibold text-white">Minimum Charge - $150</h3>
+            <span class="text-2xl text-[#9d4edd] transition-transform duration-300" [class.rotate-45]="openAccordion() === 'minimum'">&plus;</span>
+          </button>
+          <div class="accordion-content" [style.max-height]="openAccordion() === 'minimum' ? '200px' : '0'">
+            <p class="text-slate-300 pb-5 pr-8">
+              This base rate covers smaller tattoos and the cost of a fully sterile, single-use equipment setup, ensuring the highest standards of safety and hygiene for every client.
+            </p>
+          </div>
+        </div>
+        <!-- Accordion Item 2: Hourly Rate -->
+        <div class="border-b border-slate-700">
+          <button (click)="toggleAccordion('hourly')" class="w-full flex justify-between items-center py-5 text-left">
+            <h3 class="text-xl font-montserrat font-semibold text-white">Hourly Rate - $200/hr</h3>
+            <span class="text-2xl text-[#9d4edd] transition-transform duration-300" [class.rotate-45]="openAccordion() === 'hourly'">&plus;</span>
+          </button>
+          <div class="accordion-content" [style.max-height]="openAccordion() === 'hourly' ? '200px' : '0'">
+            <p class="text-slate-300 pb-5 pr-8">
+              For larger and multi-session pieces, the hourly rate applies. You are only charged for the time the needle is running. This does not include drawing time, stencil application, or breaks.
+            </p>
+          </div>
+        </div>
+        <!-- Accordion Item 3: Deposit Policy -->
+        <div class="border-b border-slate-700">
+          <button (click)="toggleAccordion('deposit')" class="w-full flex justify-between items-center py-5 text-left">
+            <h3 class="text-xl font-montserrat font-semibold text-white">Booking Deposit - $100</h3>
+            <span class="text-2xl text-[#9d4edd] transition-transform duration-300" [class.rotate-45]="openAccordion() === 'deposit'">&plus;</span>
+          </button>
+          <div class="accordion-content" [style.max-height]="openAccordion() === 'deposit' ? '200px' : '0'">
+            <p class="text-slate-300 pb-5 pr-8">
+              A non-refundable deposit is required to secure your appointment date and begin the design process. This amount is credited towards the final cost of your tattoo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

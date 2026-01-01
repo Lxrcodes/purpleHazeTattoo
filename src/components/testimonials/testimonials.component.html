@@ -1,0 +1,18 @@
+<section id="testimonials" class="py-20 md:py-32">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12 scroll-reveal">
+      <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-white">Kind Words</h2>
+      <p class="text-lg text-slate-400 mt-2 font-garamond tracking-wider">What my clients are saying.</p>
+      <div class="w-24 h-1 bg-[#9d4edd] mx-auto mt-4 rounded"></div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto scroll-reveal">
+      @for(testimonial of testimonials; track testimonial.author) {
+        <div class="bg-[#121212] p-8 rounded-lg flex flex-col text-center">
+          <p class="text-slate-300 text-lg font-garamond italic leading-relaxed mb-6 flex-grow">"{{ testimonial.quote }}"</p>
+          <p class="font-bold font-montserrat text-white uppercase tracking-widest text-sm">- {{ testimonial.author }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

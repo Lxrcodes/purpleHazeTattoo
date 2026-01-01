@@ -1,0 +1,54 @@
+<section id="work" class="py-20 md:py-32 bg-[#121212]">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12 scroll-reveal">
+      <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-white">The Work</h2>
+      <p class="text-lg text-slate-400 mt-2">A selection of recent pieces.</p>
+      <div class="w-24 h-1 bg-[#9d4edd] mx-auto mt-4 rounded"></div>
+    </div>
+    
+    <div class="columns-2 md:columns-3 lg:columns-4 gap-4 scroll-reveal">
+        @for(item of portfolioItems; track item.src; let i = $index) {
+            <div class="mb-4 break-inside-avoid">
+                <button (click)="openModal(item)" class="w-full h-auto block" aria-label="View larger image">
+                  <img [ngSrc]="item.src" [alt]="item.alt" [width]="item.width" [height]="item.height"
+                      class="w-full h-auto rounded-lg shadow-lg shadow-black/30 transition-transform duration-300 hover:scale-105"
+                      priority="i < 4" />
+                </button>
+            </div>
+        }
+    </div>
+  </div>
+</section>
+
+<!-- Image Modal -->
+@if (selectedImage(); as image) {
+  <div 
+    (click)="closeModal()"
+    class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4 animate-fade-in">
+    <div (click)="$event.stopPropagation()" class="relative max-w-4xl max-h-[90vh] bg-[#121212] p-4 rounded-lg shadow-2xl animate-slide-up">
+      <img [ngSrc]="modalImageUrl()" [alt]="image.alt" [width]="image.width * 2" [height]="image.height * 2"
+           class="max-w-full max-h-[85vh] object-contain rounded-md" />
+      <p class="text-center text-slate-300 mt-2 italic">{{ image.alt }}</p>
+      <button (click)="closeModal()" class="absolute -top-4 -right-4 bg-[#9d4edd] text-white rounded-full w-10 h-10 flex items-center justify-center text-2xl hover:bg-[#c77dff] transition-colors" aria-label="Close image view">
+        &times;
+      </button>
+    </div>
+  </div>
+}
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+  @keyframes slide-up {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .animate-slide-up {
+    animation: slide-up 0.3s ease-out forwards;
+  }
+</style>

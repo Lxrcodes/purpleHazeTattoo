@@ -1,0 +1,26 @@
+<section id="about" class="py-20 md:py-32 bg-[#121212]">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="scroll-reveal">
+        <img ngSrc="src/img/artist-portrait.jpg" 
+             alt="Portrait of the tattoo artist"
+             width="500" 
+             height="600"
+             class="rounded-lg shadow-2xl shadow-black/50 w-full h-auto object-cover">
+      </div>
+      <div class="scroll-reveal">
+        <h2 class="text-4xl md:text-5xl font-garamond font-semibold text-white mb-6">A Passion for Permanent Art</h2>
+        <p class="text-slate-300 text-lg leading-relaxed mb-4">
+          Welcome to Purple Haze Tattoos, a private studio in Perth where creativity and skin converge.  I'm dedicated to crafting beautiful, custom tattoos with a focus on illustrative blackwork, delicate fine line details, and beloved pop culture icons. 
+        </p>
+        <p class="text-slate-300 text-lg leading-relaxed mb-6">
+          My goal is to provide a comfortable, collaborative, and professional experience. Every piece is a unique story, and I am honored to help you tell yours. Let's create something timeless together.
+        </p>
+        <a href="#work" (click)="scrollTo($event, '#work')" class="text-[#9d4edd] font-bold text-lg group">
+          <span>View My Work</span>
+          <span class="inline-block transition-transform group-hover:translate-x-2 ml-2">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
