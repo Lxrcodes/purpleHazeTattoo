@@ -13,8 +13,19 @@ import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  template: `
+    <app-header></app-header>
+    <main>
+      <app-hero></app-hero>
+      <app-about></app-about>
+      <app-portfolio></app-portfolio>
+      <app-investment></app-investment>
+      <app-testimonials></app-testimonials>
+      <app-contact></app-contact>
+    </main>
+    <app-footer></app-footer>
+  `,
   imports: [
     CommonModule,
     ReactiveFormsModule,

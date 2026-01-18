@@ -21,7 +21,7 @@
     "tailwindcss": "latest"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
+    "@types/node": "^22.19.7",
     "typescript": "^5.9.3",
     "vite": "^6.2.0"
   }
