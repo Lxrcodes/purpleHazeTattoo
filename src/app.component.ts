@@ -47,8 +47,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     const options = {
       root: null,
-      rootMargin: '0px',
-      threshold: 0.1
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.15
     };
 
     this.observer = new IntersectionObserver((entries, observer) => {
@@ -60,10 +60,34 @@ export class AppComponent implements AfterViewInit, OnDestroy {
       });
     }, options);
 
-    const sections = this.elementRef.nativeElement.querySelectorAll('.scroll-reveal');
-    sections.forEach((section: Element) => {
-      this.observer.observe(section);
+    // Observe all animated elements
+    const animatedElements = this.elementRef.nativeElement.querySelectorAll(
+      '.scroll-reveal, .fade-left, .fade-right, .zoom-in, .flip-in, .img-reveal'
+    );
+    animatedElements.forEach((element: Element) => {
+      this.observer.observe(element);
     });
+
+    // Preload portfolio images
+    this.preloadImages();
+  }
+
+  private preloadImages() {
+    const images = this.elementRef.nativeElement.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target as HTMLImageElement;
+          if (img.dataset['src']) {
+            img.src = img.dataset['src'];
+            img.removeAttribute('data-src');
+          }
+          obs.unobserve(img);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    images.forEach((img: Element) => imageObserver.observe(img));
   }
 
   ngOnDestroy() {

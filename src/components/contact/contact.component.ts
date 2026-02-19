@@ -18,7 +18,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 
         <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <!-- Contact Form -->
-          <div class="scroll-reveal">
+          <div class="fade-left">
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="space-y-6">
               <div>
                 <label class="block text-purple-300 mb-2 font-semibold">Name *</label>
@@ -84,7 +84,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
           </div>
 
           <!-- Contact Info -->
-          <div class="scroll-reveal space-y-8">
+          <div class="fade-right space-y-8">
             <div>
               <h3 class="font-cinzel text-2xl font-bold text-purple-300 mb-6">Studio Information</h3>
               <div class="space-y-4">

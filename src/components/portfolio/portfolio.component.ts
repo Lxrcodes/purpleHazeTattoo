@@ -29,14 +29,15 @@ import { ImageCarouselComponent } from './image-carousel.component';
         <!-- Portfolio Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           <div
-            *ngFor="let item of filteredItems; trackBy: trackById"
+            *ngFor="let item of filteredItems; let i = index; trackBy: trackById"
             (click)="openModal(item)"
-            class="group relative overflow-hidden rounded-lg shadow-xl border-2 border-purple-900/30 hover:border-purple-500/50 transition-all cursor-pointer">
-            <div class="aspect-square bg-slate-800">
+            class="group relative overflow-hidden rounded-lg shadow-xl border-2 border-purple-900/30 hover:border-purple-500/50 transition-all cursor-pointer zoom-in hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20"
+            [style.transition-delay.ms]="i * 80">
+            <div class="aspect-square bg-slate-800 img-reveal" [style.transition-delay.ms]="i * 80 + 200">
               <app-image-carousel [images]="item.images" [alt]="item.title"></app-image-carousel>
             </div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end pointer-events-none">
-              <div class="p-6 w-full">
+              <div class="p-6 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                 <h3 class="font-cinzel text-xl font-bold text-purple-300 mb-2">{{ item.title }}</h3>
                 <p class="text-sm text-slate-300">{{ item.category }}</p>
               </div>

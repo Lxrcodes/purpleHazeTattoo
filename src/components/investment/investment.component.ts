@@ -16,7 +16,9 @@ import { CommonModule } from '@angular/common';
         </p>
 
         <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-          <div *ngFor="let tier of pricingTiers" class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 border-2 border-purple-900/50 hover:border-purple-500/70 transition-all scroll-reveal shadow-xl">
+          <div *ngFor="let tier of pricingTiers; let i = index"
+               class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-8 border-2 border-purple-900/50 hover:border-purple-500/70 transition-all zoom-in shadow-xl hover:shadow-2xl hover:shadow-purple-500/20 hover:-translate-y-2"
+               [style.transition-delay.ms]="i * 150">
             <div class="text-center mb-6">
               <i [class]="tier.icon + ' text-5xl text-purple-400 mb-4'"></i>
               <h3 class="font-cinzel text-2xl font-bold text-purple-300 mb-2">{{ tier.name }}</h3>
