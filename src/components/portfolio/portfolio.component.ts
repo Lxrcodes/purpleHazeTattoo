@@ -29,10 +29,9 @@ import { ImageCarouselComponent } from './image-carousel.component';
         <!-- Portfolio Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           <div
-            *ngFor="let item of filteredItems; let i = index; trackBy: trackByIdAndKey"
+            *ngFor="let item of filteredItems; trackBy: trackById"
             (click)="openModal(item)"
-            class="portfolio-item group relative overflow-hidden rounded-lg shadow-xl border-2 border-purple-900/30 hover:border-purple-500/50 cursor-pointer hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
-            [style.animation-delay.ms]="i * 50">
+            class="group relative overflow-hidden rounded-lg shadow-xl border-2 border-purple-900/30 hover:border-purple-500/50 cursor-pointer hover:shadow-2xl hover:shadow-purple-500/20 transition-shadow duration-200">
             <div class="aspect-square bg-slate-800">
               <app-image-carousel [images]="item.images" [alt]="item.title"></app-image-carousel>
             </div>
@@ -102,7 +101,6 @@ export class PortfolioComponent implements OnInit {
   activeCategory = 'All';
   filteredItems: typeof this.portfolioItems = [];
   selectedItem: typeof this.portfolioItems[0] | null = null;
-  animationKey = 0; // Changes to force animation replay
 
   portfolioItems = [
     { id: 1, title: 'Mountain/Tree Landscape', category: 'Nature & Floral', images: ['img/4a030e751936cf88fdca781ca19a1605.jpeg'] },
@@ -130,7 +128,6 @@ export class PortfolioComponent implements OnInit {
 
   setCategory(category: string) {
     this.activeCategory = category;
-    this.animationKey++; // Force animation replay
     if (category === 'All') {
       this.filteredItems = [...this.portfolioItems];
     } else {
@@ -138,8 +135,8 @@ export class PortfolioComponent implements OnInit {
     }
   }
 
-  trackByIdAndKey(index: number, item: { id: number }) {
-    return `${item.id}-${this.animationKey}`;
+  trackById(index: number, item: { id: number }) {
+    return item.id;
   }
 
   openModal(item: typeof this.portfolioItems[0]) {
