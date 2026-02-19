@@ -73,21 +73,36 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   }
 
   private preloadImages() {
-    const images = this.elementRef.nativeElement.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target as HTMLImageElement;
-          if (img.dataset['src']) {
-            img.src = img.dataset['src'];
-            img.removeAttribute('data-src');
-          }
-          obs.unobserve(img);
-        }
-      });
-    }, { rootMargin: '200px' });
+    // Preload all portfolio images immediately for faster loading
+    const portfolioImages = [
+      'img/4a030e751936cf88fdca781ca19a1605.jpeg',
+      'img/IMG_2413.jpeg',
+      'img/IMG_3933.jpeg',
+      'img/IMG_4010.jpeg',
+      'img/IMG_4732.jpeg',
+      'img/IMG_4756.jpeg',
+      'img/IMG_4796.jpeg',
+      'img/IMG_4797.jpeg',
+      'img/IMG_4855.jpeg',
+      'img/IMG_5011.jpeg',
+      'img/IMG_5044.jpeg',
+      'img/IMG_5047.jpeg',
+      'img/IMG_5071.jpeg',
+      'img/IMG_5126.jpeg',
+      'img/IMG_5129.jpeg',
+      'img/IMG_6528.jpeg',
+      'img/IMG_6925.jpeg',
+      'img/IMG_8006.jpeg',
+      'img/Photoroom_20251024_200316.JPG',
+      'img/att.CnqtHDOsjoos6NijJVWA1-R3RUS-mlhDh8MfvUNCi_M.jpeg',
+      'img/james-lee-PCAf6sWh7No-unsplash.jpg'
+    ];
 
-    images.forEach((img: Element) => imageObserver.observe(img));
+    // Create hidden Image objects to preload and cache
+    portfolioImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
   }
 
   ngOnDestroy() {

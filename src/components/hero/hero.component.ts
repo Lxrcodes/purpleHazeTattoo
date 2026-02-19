@@ -10,9 +10,9 @@ import { CommonModule } from '@angular/common';
       <!-- Animated background with parallax -->
       <div class="absolute inset-0 bg-[url('img/james-lee-PCAf6sWh7No-unsplash.jpg')] bg-cover bg-bottom opacity-20 brightness-25 scale-110"></div>
 
-      <!-- Floating accent shapes -->
-      <div class="absolute top-1/4 left-10 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl float"></div>
-      <div class="absolute bottom-1/4 right-10 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl float" style="animation-delay: -2s;"></div>
+      <!-- Floating accent shapes - hidden on mobile to prevent overflow -->
+      <div class="hidden md:block absolute top-1/4 left-10 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl float"></div>
+      <div class="hidden md:block absolute bottom-1/4 right-10 w-48 h-48 bg-pink-500/10 rounded-full blur-3xl float" style="animation-delay: -2s;"></div>
 
       <div class="container mx-auto px-6 text-center relative z-10">
         <h1 class="font-cinzel text-5xl md:text-7xl font-bold mb-6 zoom-in shimmer-text">

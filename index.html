@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,12 @@
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="img/james-lee-PCAf6sWh7No-unsplash.jpg">
+  <link rel="preload" as="image" href="img/4a030e751936cf88fdca781ca19a1605.jpeg">
+  <link rel="preload" as="image" href="img/IMG_2413.jpeg">
+  <link rel="preload" as="image" href="img/IMG_3933.jpeg">
 
   <style>
     ::-webkit-scrollbar { width: 8px; }
@@ -129,7 +135,7 @@
     }
   </style>
 </head>
-<body class="bg-[#1a1a2e] text-slate-300 font-montserrat">
+<body class="bg-[#1a1a2e] text-slate-300 font-montserrat overflow-x-hidden">
   <app-root></app-root>
 </body>
 </html>
