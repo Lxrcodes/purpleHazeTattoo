@@ -25,23 +25,27 @@ import { CommonModule } from '@angular/common';
           Perth-based tattoo artist specializing in custom illustrative designs, delicate fine line work, and pop culture tributes
         </p>
         <div class="flex flex-wrap gap-4 justify-center scroll-reveal delay-300">
-          <a href="#portfolio" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg glow-pulse">
+          <button (click)="scrollTo('portfolio')" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg glow-pulse cursor-pointer">
             View Portfolio
-          </a>
-          <a href="#contact" class="border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-semibold py-3 px-8 rounded-full transition-all transform hover:scale-105">
+          </button>
+          <button (click)="scrollTo('contact')" class="border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-semibold py-3 px-8 rounded-full transition-all transform hover:scale-105 cursor-pointer">
             Book Consultation
-          </a>
+          </button>
         </div>
 
         <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-reveal delay-500">
-          <a href="#about" class="flex flex-col items-center text-purple-400 hover:text-purple-300 transition-colors">
+        <div class="mt-10 scroll-reveal delay-500 flex justify-center">
+          <button (click)="scrollTo('about')" class="flex flex-col items-center text-purple-400 hover:text-purple-300 transition-colors cursor-pointer">
             <span class="text-sm mb-2">Scroll to explore</span>
             <i class="fas fa-chevron-down animate-bounce"></i>
-          </a>
+          </button>
         </div>
       </div>
     </section>
   `
 })
-export class HeroComponent {}
+export class HeroComponent {
+  scrollTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+}

@@ -18,10 +18,10 @@ import { CommonModule } from '@angular/common';
           <div>
             <h4 class="font-semibold text-purple-300 mb-3">Quick Links</h4>
             <ul class="space-y-2 text-sm">
-              <li><a href="#home" class="text-slate-400 hover:text-purple-400 transition-colors">Home</a></li>
-              <li><a href="#about" class="text-slate-400 hover:text-purple-400 transition-colors">About</a></li>
-              <li><a href="#portfolio" class="text-slate-400 hover:text-purple-400 transition-colors">Portfolio</a></li>
-              <li><a href="#contact" class="text-slate-400 hover:text-purple-400 transition-colors">Contact</a></li>
+              <li><button (click)="scrollTo('home')" class="text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">Home</button></li>
+              <li><button (click)="scrollTo('about')" class="text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">About</button></li>
+              <li><button (click)="scrollTo('portfolio')" class="text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">Portfolio</button></li>
+              <li><button (click)="scrollTo('contact')" class="text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">Contact</button></li>
             </ul>
           </div>
           <div>
@@ -31,21 +31,10 @@ import { CommonModule } from '@angular/common';
             <p class="text-slate-400 text-sm">10:00 AM - 6:00 PM</p>
           </div>
         </div>
-        <div class="border-t border-purple-900/30 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p class="text-slate-500 text-sm mb-4 md:mb-0">
+        <div class="border-t border-purple-900/30 pt-6 text-center">
+          <p class="text-slate-500 text-sm">
             &copy; {{ currentYear }} Purple Haze Tattoos. All rights reserved.
           </p>
-          <div class="flex gap-4">
-            <a href="#" class="text-slate-500 hover:text-purple-400 transition-colors">
-              <i class="fab fa-instagram text-xl"></i>
-            </a>
-            <a href="#" class="text-slate-500 hover:text-purple-400 transition-colors">
-              <i class="fab fa-facebook text-xl"></i>
-            </a>
-            <a href="#" class="text-slate-500 hover:text-purple-400 transition-colors">
-              <i class="fab fa-tiktok text-xl"></i>
-            </a>
-          </div>
         </div>
       </div>
     </footer>
@@ -53,4 +42,8 @@ import { CommonModule } from '@angular/common';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+
+  scrollTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

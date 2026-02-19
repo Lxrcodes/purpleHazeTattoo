@@ -13,12 +13,12 @@ import { CommonModule } from '@angular/common';
             Purple Haze Tattoos
           </div>
           <ul class="hidden md:flex space-x-8">
-            <li><a href="#home" class="hover:text-purple-400 transition-colors">Home</a></li>
-            <li><a href="#about" class="hover:text-purple-400 transition-colors">About</a></li>
-            <li><a href="#portfolio" class="hover:text-purple-400 transition-colors">Portfolio</a></li>
-            <li><a href="#investment" class="hover:text-purple-400 transition-colors">Investment</a></li>
-            <li><a href="#testimonials" class="hover:text-purple-400 transition-colors">Testimonials</a></li>
-            <li><a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a></li>
+            <li><button (click)="scrollTo('home')" class="hover:text-purple-400 transition-colors cursor-pointer">Home</button></li>
+            <li><button (click)="scrollTo('about')" class="hover:text-purple-400 transition-colors cursor-pointer">About</button></li>
+            <li><button (click)="scrollTo('portfolio')" class="hover:text-purple-400 transition-colors cursor-pointer">Portfolio</button></li>
+            <li><button (click)="scrollTo('investment')" class="hover:text-purple-400 transition-colors cursor-pointer">Investment</button></li>
+            <li><button (click)="scrollTo('testimonials')" class="hover:text-purple-400 transition-colors cursor-pointer">Testimonials</button></li>
+            <li><button (click)="scrollTo('contact')" class="hover:text-purple-400 transition-colors cursor-pointer">Contact</button></li>
           </ul>
           <button class="md:hidden text-purple-400">
             <i class="fas fa-bars text-2xl"></i>
@@ -28,4 +28,8 @@ import { CommonModule } from '@angular/common';
     </header>
   `
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  scrollTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  }
+}

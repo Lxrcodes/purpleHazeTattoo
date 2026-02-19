@@ -114,24 +114,6 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
               </div>
             </div>
 
-            <div class="bg-slate-800/50 rounded-xl p-6 border border-purple-900/30">
-              <h4 class="font-cinzel text-xl font-bold text-purple-300 mb-4">Follow the Journey</h4>
-              <div class="flex gap-4">
-                <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-                  <i class="fab fa-instagram text-white text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-                  <i class="fab fa-facebook text-white text-xl"></i>
-                </a>
-                <a href="#" class="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
-                  <i class="fab fa-tiktok text-white text-xl"></i>
-                </a>
-              </div>
-              <p class="text-sm text-slate-400 mt-4">
-                &#64;purplehazetattoos - Daily updates, flash designs, and behind-the-scenes content
-              </p>
-            </div>
-
             <div class="bg-gradient-to-br from-purple-900/30 to-pink-900/30 rounded-xl p-6 border border-purple-500/30">
               <h4 class="font-bold text-purple-200 mb-2">Important Note</h4>
               <p class="text-sm text-slate-300">
